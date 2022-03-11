@@ -1,0 +1,140 @@
+main{
+    background-color: #292f36;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+}
+
+.pesquisa{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.pesquisa h2{
+    color: #fff;
+    margin-right: 50px;
+    font-size: 30px;
+}
+
+.pesquisa input{
+    border-radius: 10px;
+    padding-left: 16px;
+    border: none;
+    width: 300px;
+    color: #292f36;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.pesquisa input::placeholder{
+    color: #292f368a;
+}
+
+.alunos{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.aluno{
+    width: 22%;
+    height: 150px;
+    background-color: #fff;
+    margin:  5px 30px 5px 0;
+    text-align: left;
+    padding-left: 15px;
+    padding-top: 10px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px #23282e;
+}
+
+.student-degree{
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.aluno button{
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: none;
+    padding: 8px 10px 8px 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.student-name{
+    margin-bottom: 5px;
+}
+
+.aluno .btn-editar{
+    background-color: #4ecdc4;
+}
+
+.aluno .btn-remover{
+    background-color: #ff6f6f;
+}
+
+.search-null{
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff6f6f;
+}
+
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.box-modal{
+    padding: 100px 100px;
+    background-color: #292f36;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.box-modal label{
+    color: #fff;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.modal-input{
+    width: 400px;
+    height: 55px;
+    border: 1px solid #292f36;
+    margin-bottom: 30px;
+    padding-left: 20px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.btn-modal{
+    width: 100%;
+    height: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #ff6f6f;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-modal:hover{
+    background-color: #fff;
+    color: #ff6f6f;
+    transition: 0.5s;
+}
+
