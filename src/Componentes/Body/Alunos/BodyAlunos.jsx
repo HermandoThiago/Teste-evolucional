@@ -16,40 +16,30 @@ function BodyAlunos(){
     const [Classes, setClasses] = useState(classes)
     const [id, setId] = useState('0')
     const [editName, setEditName] = useState('')
-    const [editTurma, setEditTurma] = useState('')
-    const [editClas, setEditClas] = useState('')
+    const [editTurma, setEditTurma] = useState(1)
+    const [editClas, setEditClas] = useState(1)
     const [modal, setModal] = useState(false)
 
     useEffect(() => {
-        console.log(alunos[id])
+        console.log(alunos)
     })
+
     const pesquisa = (e) => {
         setSearch(e.target.value);
     }
 
-    const formatarEstudantes = () => {
-        return alunos.map(aluno => ({
-            ...aluno, degreeName: Degrees[aluno.degreeId - 1].name,
-            className: Classes.classes[aluno.classId - 1].name
-        }))
-    }
-
-    const bua = formatarEstudantes()
+    //const formatarEstudantes = () => {
+      //  return alunos.map(aluno => ({
+        //    ...aluno, degreeName: Degrees[aluno.degreeId - 1].name,
+          //  className: Classes.classes[aluno.classId - 1].name
+//        }))
+  //  }
 
     const setarEdição = () => {
         
-        let alunosNovo = [...alunos];
-        const juncao = () => {
-            return alunosNovo.map(aluno => ({
-                ...aluno, degreeName: Degrees[aluno.degreeId - 1].name,
-            className: Classes.classes[aluno.classId - 1].name
-            }))
-        }
-
-        alunosNovo = [...juncao()]
-
-        const dadosAntigos = juncao()[id -1]
-        const dadosNovos = {name: editName, degreeName: editClas,className: editTurma}
+        const alunosNovo = [...alunos];
+        const dadosAntigos = alunos[id]
+        const dadosNovos = {name: editName, degreeId: editTurma - 1,classId: editClas - 1}
         alunosNovo[id] = {...dadosAntigos, ...dadosNovos}
         setAlunos(alunosNovo)
         console.log(alunosNovo)
@@ -58,12 +48,12 @@ function BodyAlunos(){
 
     
 
-    const filtroAlunos = bua.filter(aluno => 
+    const filtroAlunos = alunos.filter(aluno => 
         aluno.name.toLowerCase().includes(search.toLocaleLowerCase())
-        ||
-        aluno.degreeName.toLowerCase().includes(search.toLocaleLowerCase())
-        ||
-        aluno.className.toLowerCase().includes("Turma" + search.toLocaleLowerCase())
+     //   ||
+       // aluno.degreeId.toLowerCase().includes(search.toLocaleLowerCase())
+        //||
+        //aluno.classId.toLowerCase().includes("Turma" + search.toLocaleLowerCase())
     )
     
     function removerAluno(id){
@@ -97,18 +87,43 @@ function BodyAlunos(){
 
     return(
         <main>
-            <BarChart chartData={formatarEstudantes()} />
+            <BarChart chartData={alunos} />
             <Modal
                 className="modal"
                 isOpen={modal}
             >
             <div className="box-modal">
                 <label>Nome do aluno:</label>
-                <input className="modal-input" type="text" placeholder={bua[id].name} value={bua[id].name} onChange={(text) => setEditName(text.target.value)}/>
+                <input className="modal-input" type="text" placeholder="Nome do aluno" onChange={(text) => setEditName(text.target.value)}/>
                 <label >Classe:</label>
-                <input className="modal-input" type="text" placeholder={bua[id].degreeName} onChange={(text) => setEditClas(text.target.value)}/>
+                <div className="custom-select">
+                    <select onChange={(event) => setEditClas(event.target.value)}>
+                        <option value="1">A</option>
+                        <option value="2">B</option>
+                        <option value="3">C</option>
+                        <option value="4">D</option>
+                        <option value="5">E</option>
+                        <option value="6">F</option>
+                    </select>
+                </div>
                 <label>Turma:</label>
-                <input className="modal-input" type="text" placeholder={bua[id].className} onChange={(text) => setEditTurma(text.target.value)}/>
+                <div className="custom-select">
+                    <select onChange={(event) => setEditTurma(event.target.value)}>
+                        <option value="0">Ensino Fundamental</option>
+                        <option value="1">1° ano do ensino médio</option>
+                        <option value="2">2° ano ensino médio</option>
+                        <option value="3">3° ano do ensino médio</option>
+                        <option value="4">Cursinho</option>
+                        <option value="5">4º ano do ensino fundamental</option>
+                        <option value="6">5º ano do ensino fundamental</option>
+                        <option value="7">6º ano do ensino fundamental</option>
+                        <option value="8">7º ano do ensino fundamental</option>
+                        <option value="9">8º ano do ensino fundamental</option>
+                        <option value="10">9º ano do ensino fundamental</option>
+                        <option value="11">Estudo em casa</option>
+                        <option value="12">Outros</option>
+                    </select>
+                </div>
                 <button className="btn-modal" onClick={() => setarEdição()}>Editar aluno</button>
             </div>
             </Modal>
@@ -134,8 +149,8 @@ function BodyAlunos(){
                         return(
                             <div className="aluno">
                                 <h3 className="student-name">{aluno.name}</h3>
-                                <p className="student-degree">{aluno.degreeName}</p>
-                                <p className="student-name">Turma: {aluno.className}</p>
+                                <p className="student-degree">{Degrees[aluno.degreeId + 1].name}</p>
+                                <p className="student-name">Classe: {Classes.classes[aluno.classId].name}</p>
                                 <button className="btn-editar" onClick={() => editarAluno(aluno.id)}>Editar</button>
                                 <button className="btn-remover" onClick={() => removerAluno(aluno.id)}>Remover</button>
                             </div>
