@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal/lib/components/Modal";
 import './BodyAlunos.css';
-import students from '../../../data/students.json';
-import classes from '../../../data/classes.json';
-import degrees from '../../../data/degrees.json';
-import BarChart from "../../Dashboard/BarChart";
+import students from '../../data/students.json'
+import classes from '../../data/classes.json'
+import degrees from '../../data/degrees.json'
+import BarChart from './Dashboard/BarChart'
+//import BarChart from "../../Dashboard/BarChart";
 
 Modal.setAppElement("#root")
 
-function BodyAlunos(){
+function BodyAlunos({DadosAlunos}){
 
     const [search, setSearch] = useState('')
-    const [alunos, setAlunos] = useState(students)
+    const [alunos, setAlunos] = useState(DadosAlunos)
     const [Degrees, setDegrees] = useState(degrees)
     const [Classes, setClasses] = useState(classes)
     const [id, setId] = useState('0')
@@ -21,19 +22,12 @@ function BodyAlunos(){
     const [modal, setModal] = useState(false)
 
     useEffect(() => {
-        console.log(Degrees[editTurma - 1].id)
+        
     })
 
     const pesquisa = (e) => {
         setSearch(e.target.value);
     }
-
-    //const formatarEstudantes = () => {
-      //  return alunos.map(aluno => ({
-        //    ...aluno, degreeName: Degrees[aluno.degreeId - 1].name,
-          //  className: Classes.classes[aluno.classId - 1].name
-//        }))
-  //  }
 
     const setarEdição = () => {
         
@@ -46,6 +40,7 @@ function BodyAlunos(){
         setEditTurma(1)
         console.log(alunosNovo)
         setModal(false)
+        
     }
 
     
@@ -61,7 +56,7 @@ function BodyAlunos(){
 
     function editarAluno(id){
         setModal(true)
-        setId(id - 1)
+        setId(alunos[id - 2].id)
         console.log(id)
     }
 

@@ -1,26 +1,10 @@
 import React, { useEffect, useState } from "react";
 import {Chart} from "react-google-charts";
-import degrees from "../../data/degrees.json"
+import degrees from '../../../data/degrees.json'
 import './BarChart.css'
 
 function BarChart({chartData}){
-
-    useEffect(()=>{
-        console.log("dash tudo ok!")
-    }, [])
-
-    const nomesAlunos = () => {
-        return chartData.map(aluno => ({
-            name: aluno.name
-        }))
-    }
-
-    const nomeSalas = () => {
-        return degrees.map(sala => ({
-            sala: sala.name
-        }))
-    }
-
+    
     const options = {
         chart: {
             title: "Alunos por classe"

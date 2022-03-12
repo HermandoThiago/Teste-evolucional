@@ -1,5 +1,6 @@
 import React from "react";
-import BodyProfessores from '../Componentes/Body/Professores/BodyProfessores'
+import BodyProfessores from "./Componentes/Body/BodyProfessores";
+
 function ProfessoresScreen(){
 
     return(
