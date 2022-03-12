@@ -21,7 +21,7 @@ function BodyAlunos(){
     const [modal, setModal] = useState(false)
 
     useEffect(() => {
-        console.log(alunos)
+        console.log(Degrees[editTurma - 1].id)
     })
 
     const pesquisa = (e) => {
@@ -39,9 +39,11 @@ function BodyAlunos(){
         
         const alunosNovo = [...alunos];
         const dadosAntigos = alunos[id]
-        const dadosNovos = {name: editName, degreeId: editTurma - 1,classId: editClas - 1}
+        const dadosNovos = {name: editName, degreeId: editTurma,classId: parseInt(Classes.classes[editClas - 1].id) }
         alunosNovo[id] = {...dadosAntigos, ...dadosNovos}
         setAlunos(alunosNovo)
+        setEditClas(1)
+        setEditTurma(1)
         console.log(alunosNovo)
         setModal(false)
     }
@@ -50,10 +52,6 @@ function BodyAlunos(){
 
     const filtroAlunos = alunos.filter(aluno => 
         aluno.name.toLowerCase().includes(search.toLocaleLowerCase())
-     //   ||
-       // aluno.degreeId.toLowerCase().includes(search.toLocaleLowerCase())
-        //||
-        //aluno.classId.toLowerCase().includes("Turma" + search.toLocaleLowerCase())
     )
     
     function removerAluno(id){
@@ -108,23 +106,24 @@ function BodyAlunos(){
                 </div>
                 <label>Turma:</label>
                 <div className="custom-select">
-                    <select onChange={(event) => setEditTurma(event.target.value)}>
-                        <option value="0">Ensino Fundamental</option>
-                        <option value="1">1° ano do ensino médio</option>
-                        <option value="2">2° ano ensino médio</option>
-                        <option value="3">3° ano do ensino médio</option>
-                        <option value="4">Cursinho</option>
-                        <option value="5">4º ano do ensino fundamental</option>
-                        <option value="6">5º ano do ensino fundamental</option>
-                        <option value="7">6º ano do ensino fundamental</option>
-                        <option value="8">7º ano do ensino fundamental</option>
-                        <option value="9">8º ano do ensino fundamental</option>
-                        <option value="10">9º ano do ensino fundamental</option>
-                        <option value="11">Estudo em casa</option>
-                        <option value="12">Outros</option>
+                    <select onChange={(text) => setEditTurma(text.target.value)}>
+                        <option value="1">Ensino Fundamental</option>
+                        <option value="2">1° ano do ensino médio</option>
+                        <option value="3">2° ano ensino médio</option>
+                        <option value="4">3° ano do ensino médio</option>
+                        <option value="5">Cursinho</option>
+                        <option value="6">4º ano do ensino fundamental</option>
+                        <option value="7">5º ano do ensino fundamental</option>
+                        <option value="8">6º ano do ensino fundamental</option>
+                        <option value="9">7º ano do ensino fundamental</option>
+                        <option value="10">8º ano do ensino fundamental</option>
+                        <option value="11">9º ano do ensino fundamental</option>
+                        <option value="12">Estudo em casa</option>
+                        <option value="13">Outros</option>
                     </select>
                 </div>
                 <button className="btn-modal" onClick={() => setarEdição()}>Editar aluno</button>
+                <button className="btn-moda-false" onClick={() => setModal(false)}>x</button>
             </div>
             </Modal>
             <button className="btn-generate" onClick={() => generate()}>Gerar alunos</button>
@@ -149,8 +148,8 @@ function BodyAlunos(){
                         return(
                             <div className="aluno">
                                 <h3 className="student-name">{aluno.name}</h3>
-                                <p className="student-degree">{Degrees[aluno.degreeId + 1].name}</p>
-                                <p className="student-name">Classe: {Classes.classes[aluno.classId].name}</p>
+                                <p className="student-degree">{Degrees[aluno.degreeId - 1].name}</p>
+                                <p className="student-name">Classe: {Classes.classes[aluno.classId - 1].name}</p>
                                 <button className="btn-editar" onClick={() => editarAluno(aluno.id)}>Editar</button>
                                 <button className="btn-remover" onClick={() => removerAluno(aluno.id)}>Remover</button>
                             </div>

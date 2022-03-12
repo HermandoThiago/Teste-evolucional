@@ -137,6 +137,19 @@ select{
     font-size: 15px;
     font-weight: bold;
     color: #fff;
+    background-color: #4ecdc4;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-moda-false{
+    width: 100px;
+    height: 35px;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
     background-color: #ff6f6f;
     border: none;
     border-radius: 10px;

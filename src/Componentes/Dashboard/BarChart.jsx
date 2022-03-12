@@ -29,19 +29,19 @@ function BarChart({chartData}){
         bars: "horizontal"
     }
 
-    const filter0 = chartData.filter(alunoTurma => alunoTurma.degreeId == degrees[0].id ).length
-    const filter1 = chartData.filter(alunoTurma => alunoTurma.degreeId == degrees[1].id ).length
-    const filter2 = chartData.filter(alunoTurma => alunoTurma.degreeId == degrees[2].id ).length
-    const filter3 = chartData.filter(alunoTurma => alunoTurma.degreeId == degrees[3].id ).length
-    const filter4 = chartData.filter(alunoTurma => alunoTurma.degreeId == degrees[4].id ).length
-    const filter5 = chartData.filter(alunoTurma => alunoTurma.degreeId == degrees[5].id ).length
-    const filter6 = chartData.filter(alunoTurma => alunoTurma.degreeId == degrees[6].id ).length
-    const filter7 = chartData.filter(alunoTurma => alunoTurma.degreeId == degrees[7].id ).length
-    const filter8 = chartData.filter(alunoTurma => alunoTurma.degreeId == degrees[8].id ).length
-    const filter9 = chartData.filter(alunoTurma => alunoTurma.degreeId == degrees[9].id ).length
-    const filter10 = chartData.filter(alunoTurma => alunoTurma.degreeId == degrees[10].id ).length
-    const filter11 = chartData.filter(alunoTurma => alunoTurma.degreeId == degrees[11].id ).length
-    const filter12 = chartData.filter(alunoTurma => alunoTurma.degreeId == degrees[12].id ).length
+    const filter0 = chartData.filter(alunoTurma => alunoTurma.degreeId == 1 ).length
+    const filter1 = chartData.filter(alunoTurma => alunoTurma.degreeId == 2 ).length
+    const filter2 = chartData.filter(alunoTurma => alunoTurma.degreeId == 3 ).length
+    const filter3 = chartData.filter(alunoTurma => alunoTurma.degreeId == 4 ).length
+    const filter4 = chartData.filter(alunoTurma => alunoTurma.degreeId == 5 ).length
+    const filter5 = chartData.filter(alunoTurma => alunoTurma.degreeId == 6 ).length
+    const filter6 = chartData.filter(alunoTurma => alunoTurma.degreeId == 7 ).length
+    const filter7 = chartData.filter(alunoTurma => alunoTurma.degreeId == 8 ).length
+    const filter8 = chartData.filter(alunoTurma => alunoTurma.degreeId == 9 ).length
+    const filter9 = chartData.filter(alunoTurma => alunoTurma.degreeId == 10 ).length
+    const filter10 = chartData.filter(alunoTurma => alunoTurma.degreeId == 11 ).length
+    const filter11 = chartData.filter(alunoTurma => alunoTurma.degreeId == 12 ).length
+    const filter12 = chartData.filter(alunoTurma => alunoTurma.degreeId == 13 ).length
 
     const data = [
         ['Quantidade de alunos por classe', "Quantidade de alunos" ],
