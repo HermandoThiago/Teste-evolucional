@@ -25,3 +25,32 @@
 .turma{
     margin-bottom: 5px;
 }
+
+@media screen and (max-width: 768px){
+
+    
+
+    .pesquisa{
+        width: 100%;
+    }
+
+    .pesquisa h2{
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .pesquisa input{
+        width: 100%;
+        height: 50px;
+    }
+
+    .professores{
+        width: 100%;
+    }
+
+    .box-professores{
+        width: 100%;
+    }
+
+}

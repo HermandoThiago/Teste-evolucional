@@ -162,3 +162,41 @@ select{
     transition: 0.5s;
 }
 
+@media screen and (max-width: 768px){
+
+    .pesquisa{
+        text-align: center;
+        padding: 0;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .pesquisa h2{
+        width: 100%;
+    }
+
+    .pesquisa .search-input{
+        width: 100%;
+        margin: 0;
+    }
+    
+    .btn-generate{
+        width: 100%;
+    }
+
+    .alunos{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .aluno{
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+}
+

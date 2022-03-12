@@ -125,6 +125,7 @@ function BodyAlunos({DadosAlunos}){
             <div className="pesquisa">
                 <h2>Pesquisar alunos</h2>
                 <input 
+                className="search-input"
                 placeholder="Pesquisar alunos"
                 type="text"
                 onChange={pesquisa}
